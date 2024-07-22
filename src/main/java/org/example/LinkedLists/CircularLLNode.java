@@ -45,7 +45,7 @@ public class CircularLLNode{
         temp.data = data;
         temp.next = last.next;
         last.next = temp;
-        return last;
+        return temp;
     }
 
     static CircularLLNode addAfter(CircularLLNode last, int data, int item)
