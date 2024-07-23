@@ -3,11 +3,10 @@ package org.example.LinkedLists;
 
 //see README for further information on circular linked list info
 public class CircularLLNode{
-    int data;
-    CircularLLNode next;
+    public int data;
+    public CircularLLNode next;
 
-
-    static CircularLLNode addToEmpty(CircularLLNode last, int data){
+    public static CircularLLNode addToEmpty(CircularLLNode last, int data){
 
         if (last != null)
             return last;
@@ -21,7 +20,30 @@ public class CircularLLNode{
         return  last;
     }
 
-    static CircularLLNode addBegin(CircularLLNode last, int data){
+    public boolean containsNode(CircularLLNode last, int data) {
+        if (last == null) {
+            return false;
+        }
+
+        CircularLLNode first = last.next;
+        if (first == null) {
+            return false;
+        }
+
+        CircularLLNode temp = first;
+
+        // Traverse the list
+        do {
+            if (temp.data == data) {
+                return true;
+            }
+            temp = temp.next;
+        } while (temp != first);
+
+        return false;
+    }
+
+    public static CircularLLNode addBegin(CircularLLNode last, int data){
 
         if (last == null)
             return addToEmpty(last, data);
@@ -37,7 +59,7 @@ public class CircularLLNode{
 
     }
 
-    static CircularLLNode addEnd(CircularLLNode last, int data){
+    public static CircularLLNode addEnd(CircularLLNode last, int data){
         if (last == null)
             return addToEmpty(last, data);
 
@@ -48,7 +70,7 @@ public class CircularLLNode{
         return temp;
     }
 
-    static CircularLLNode addAfter(CircularLLNode last, int data, int item)
+    public static CircularLLNode addAfter(CircularLLNode last, int data, int item)
     {
         if (last == null)
             return null;
@@ -73,7 +95,7 @@ public class CircularLLNode{
         return last;
     }
 
-    static void traverse(CircularLLNode last){
+    public static void traverse(CircularLLNode last){
         CircularLLNode p;
 
         if (last == null) {
