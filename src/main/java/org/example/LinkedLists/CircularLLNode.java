@@ -20,7 +20,7 @@ public class CircularLLNode{
         return  last;
     }
 
-    public boolean containsNode(CircularLLNode last, int data) {
+    public static boolean containsNode(CircularLLNode last, int data) {
         if (last == null) {
             return false;
         }
@@ -95,6 +95,43 @@ public class CircularLLNode{
         return last;
     }
 
+    // Method to delete a node from the circular linked list
+    public static CircularLLNode deleteNode(CircularLLNode last, int key) {
+        // If the list is empty
+        if (last == null)
+            return null;
+
+        CircularLLNode current = last.next, prev = last;
+        boolean found = false;
+
+        // Traverse the list to find the node to be deleted
+        do {
+            if (current.data == key) {
+                found = true;
+                break;
+            }
+            prev = current;
+            current = current.next;
+        } while (current != last.next);
+
+        // If node to be deleted is found
+        if (found) {
+            // If the list contains only one node
+            if (last.next == last && last.data == key) {
+                last = null;
+            } else if (current == last) { // If the node to be deleted is the last node
+                prev.next = current.next;
+                last = prev;
+            } else if (current == last.next) { // If the node to be deleted is the first node
+                last.next = current.next;
+            } else { // For any other node
+                prev.next = current.next;
+            }
+        }
+
+        return last;
+    }
+
     public static void traverse(CircularLLNode last){
         CircularLLNode p;
 
@@ -123,6 +160,8 @@ public class CircularLLNode{
         last = addEnd(last, 12);
         traverse(last);
         last = addAfter(last, 10, 8);
+        traverse(last);
+        last = deleteNode(last, 4);
         traverse(last);
     }
 }

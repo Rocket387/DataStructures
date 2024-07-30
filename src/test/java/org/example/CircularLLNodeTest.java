@@ -9,6 +9,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
+import static org.example.LinkedLists.CircularLLNode.addBegin;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import static org.junit.Assert.assertEquals;
@@ -22,9 +23,6 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class CircularLLNodeTest {
-
-    @Mock
-    CircularLLNode circularLLNode;
 
     @Test
     public void addToEmptyListTest(){
@@ -40,7 +38,7 @@ public class CircularLLNodeTest {
         CircularLLNode list = null;
         int data = 10;
         list = CircularLLNode.addToEmpty(list, data);
-        assertTrue(list.containsNode(list,10));
+        assertTrue(CircularLLNode.containsNode(list,10));
     }
 
     @Test
@@ -48,12 +46,30 @@ public class CircularLLNodeTest {
         CircularLLNode list = null;
         int data = 10;
         list = CircularLLNode.addToEmpty(list, data);
-        assertFalse(list.containsNode(list,13));
+        assertFalse(CircularLLNode.containsNode(list,13));
     }
 
     @Test
-    public void deletingHeadMiddleTail(){
+    public void deleteNodeTest(){
+        CircularLLNode list = null;
+        int data = 10;
+        list = CircularLLNode.addToEmpty(list, data);
+        CircularLLNode.addBegin(list, 4);
+        CircularLLNode.addBegin(list, 2);
+        CircularLLNode.deleteNode(list, 2);
+        assertFalse(CircularLLNode.containsNode(list, 2));
+        assertTrue(CircularLLNode.containsNode(list, 4));
+    }
 
+    @Test
+    public void addToBeginningTest(){
+        CircularLLNode list = null;
+        int data = 10;
+        list = CircularLLNode.addToEmpty(list, data);
+        CircularLLNode.addBegin(list, 4);
+        CircularLLNode.addBegin(list, 2);
+        
+        assertTrue(CircularLLNode.containsNode(list, 4));
 
     }
 }
