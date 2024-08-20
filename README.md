@@ -11,3 +11,4 @@ CircularLLNode - https://www.geeksforgeeks.org/circular-linked-list/
 Matrix data structure
 row/column search - https://www.geeksforgeeks.org/search-in-row-wise-and-column-wise-sorted-matrix/
 
+Stack - https://www.geeksforgeeks.org/stack-data-structure/
