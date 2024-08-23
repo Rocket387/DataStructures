@@ -6,7 +6,7 @@ find the position of X in the matrix if it is present.
 Otherwise, print “Element not found”.
 Every row and column of the matrix is sorted in increasing order.
  */
-public class rowAndColumnSearch {
+public class RowAndColumnSearch {
 
     static int search(int[][] mat, int n, int x) {
         if (n == 0)

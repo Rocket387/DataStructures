@@ -1,7 +1,7 @@
 package org.example.Stack;
 
 //LIFO - Last In First Out
-public class basicStack {
+public class BasicStack {
 
     static final int MAX = 1000;
     int top;
@@ -10,7 +10,7 @@ public class basicStack {
     boolean isEmpty() {
         return (top < 0);
     }
-    basicStack() {
+    BasicStack() {
         top = -1;
     }
 
@@ -51,7 +51,7 @@ public class basicStack {
     }
 
     public static void main(String[] args) {
-        basicStack s = new basicStack();
+        BasicStack s = new BasicStack();
         s.push(10);
         s.push(30);
         s.push(50);
